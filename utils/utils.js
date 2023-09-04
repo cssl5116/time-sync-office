@@ -5,7 +5,6 @@
  * @param {Number}  duration 提示时间
  */
 export function toast(title, icon = 'none', duration = 1500) {
-	console.log(icon);	
 	if (title) {
 		uni.showToast({
 			title,
