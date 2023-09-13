@@ -1,3 +1,5 @@
 import request from '@/utils/request'
 
-export const login = () =>  request.get('/test/sayHello',{name:"张三"}) 
+export const login = (code) => request.post('/user/login', { 'code': code })
+
+export const register = (userInfo) => request.post('/user/register', userInfo)

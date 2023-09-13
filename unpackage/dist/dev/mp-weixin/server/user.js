@@ -1,4 +1,6 @@
 "use strict";
 const utils_request = require("../utils/request.js");
-const login = () => utils_request.request.get("/test/sayHello", { name: "张三" });
+const login = (code) => utils_request.request.post("/user/login", { "code": code });
+const register = (userInfo) => utils_request.request.post("/user/register", userInfo);
 exports.login = login;
+exports.register = register;

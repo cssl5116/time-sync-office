@@ -3,9 +3,14 @@ Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
 const common_vendor = require("./common/vendor.js");
 const stores_index = require("./stores/index.js");
 if (!Math) {
-  "./pages/index/index.js";
   "./pages/login/login.js";
+  "./pages/index/index.js";
   "./pages/register/register.js";
+  "./pages/meeting_list/meeting_list.js";
+  "./pages/document/document.js";
+  "./pages/contacts/contacts.js";
+  "./pages/mine/mine.js";
+  "./pages/checkIn/checkIn.js";
 }
 const _sfc_main = {
   onLaunch: function() {
@@ -18,7 +23,7 @@ const _sfc_main = {
     console.log("App Hide");
   }
 };
-const App = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "D:/java/time-sync-office/App.vue"]]);
+const App = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "C:/Users/86185/Desktop/团队项目代码/time-sync-office/App.vue"]]);
 function createApp() {
   const app = common_vendor.createSSRApp(App);
   app.use(stores_index.pinia);

@@ -1,28 +1,68 @@
-
-.register-container {
-		width: 70%;
-		margin: 150rpx auto 0 auto;
+.logo {
+  width: 70%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 80rpx;
 }
-.register-code {
-		background-color: #F5F5F5;
-		border: 1rpx solid #e0e0e0;
-		font-size: 34rpx;
-		color: #333;
-		text-align: center;
-		border-radius: 10rpx;
-		margin-bottom: 30rpx;
-		height: 80rpx;
-		padding: 0 20rpx;
+.register-container {
+  width: 70%;
+  margin-top: 150rpx;
+  margin-left: auto;
+  margin-right: auto;
+}
+.register-container .register-code {
+  border: solid 1rpx #e0e0e0;
+  font-size: 34rpx;
+  color: #333;
+  text-align: center;
+  background-color: #f5f5f5;
+  border-radius: 10rpx;
+  margin-bottom: 30rpx;
+  height: 80rpx;
+  padding: 0 20rpx;
 }
 .register-desc {
-		color: #C5BFC3;
-		font-size: 28rpx;
-		line-height: 1.5;
-		margin-bottom: 80rpx;
+  color: #999;
+  font-size: 28rpx;
+  line-height: 1.5;
+  margin-bottom: 80rpx;
 }
 .register-btn {
-		width: 60%;
-		position: absolute;
-		bottom: 20%;
-		left: 20%;
+  background-color: #3474ff;
+  color: #fff;
+}
+.register-btn:active {
+  background-color: #0052ff;
+}
+/* 对话框--补充用户信息 */
+.padding-xl {
+  padding-top: 0;
+}
+.cu-dialog {
+  bottom: 50rpx;
+  background-color: #fff;
+}
+.containar > .title {
+  margin-top: 10px;
+  padding: 10px;
+  padding-left: 0px;
+  text-align: left;
+}
+.containar > .title::before {
+  margin: 0 5px;
+  display: inline-block;
+  content: '';
+  width: 5px;
+  height: 12px;
+  border-radius: 0.2rem;
+  background-color: #ff87a1;
+}
+.containar > .nickname {
+  margin-top: 10px;
+  padding: 10px 0 10px 5px;
+  display: flex;
+  border: 1px solid #fafafa;
+  border-left: none;
+  border-right: none;
 }

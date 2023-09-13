@@ -1,24 +1,67 @@
-
 .content {
-		margin-top: 20px;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
+  background-color: #EEEEF4;
 }
-.logo {
-		height: 200rpx;
-		width: 200rpx;
-		margin-top: 200rpx;
-		margin-left: auto;
-		margin-right: auto;
-		margin-bottom: 50rpx;
+.swiper {
+  height: 215px;
 }
-.text-area {
-		display: flex;
-		justify-content: center;
+.swiper image {
+  width: 100% !important;
 }
-.title {
-		font-size: 36rpx;
-		color: #8f8f94;
+.notify-container {
+  background-color: #fff;
+  padding: 25px;
+  position: relative;
+  margin-bottom: 20rpx;
+}
+.notify-title {
+  font-size: 34rpx;
+  color: #3474FF;
+  margin-bottom: 10rpx;
+}
+.notify-icon {
+  width: 38rpx;
+  vertical-align: -8rpx;
+  margin-right: 5rpx;
+}
+.notify-content {
+  font-size: 30rpx;
+  color: #333;
+}
+.notify-content::before {
+  display: inline-block;
+  content: "";
+  width: 12rpx;
+  height: 12rpx;
+  border-radius: 6rpx;
+  background-color: red;
+  margin-left: 18rpx;
+  margin-right: 15rpx;
+  vertical-align: 3rpx;
+}
+.more-icon {
+  position: absolute;
+  right: 5rpx;
+  width: 60rpx;
+  top: 50rpx;
+}
+.nav-container {
+  background-color: #fff;
+  margin-bottom: 20rpx;
+  padding: 50rpx 40rpx;
+}
+.nav-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50rpx;
+}
+.nav {
+  text-align: center;
+}
+.icon {
+  width: 80rpx;
+}
+.name {
+  display: block;
+  font-size: 30rpx;
+  color: #333;
 }

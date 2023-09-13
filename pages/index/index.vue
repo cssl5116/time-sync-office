@@ -9,11 +9,11 @@
 				title: '请先登录',
 				icon: 'error'
 			})
-			// setTimeout(() => {
-			// 	uni.redirectTo({
-			// 		url: '/pages/login/login'
-			// 	})
-			// }, 800)
+			setTimeout(() => {
+				uni.redirectTo({
+					url: '/pages/register/register'
+				})
+			}, 800)
 		}
 	})
 	const toPage = (url) => {
@@ -29,23 +29,28 @@
 	<view class="content">
 		<swiper circular="true" interval="8000" duration="1000" class="swiper">
 			<swiper-item>
-				<image mode="widthFix" src="https://static-1258386385.cos.ap-beijing.myqcloud.com/img/banner/swiper-1.jpg">
+				<image mode="widthFix"
+					src="https://static-1258386385.cos.ap-beijing.myqcloud.com/img/banner/swiper-1.jpg">
 				</image>
 			</swiper-item>
 			<swiper-item>
-				<image mode="widthFix" src="https://static-1258386385.cos.ap-beijing.myqcloud.com/img/banner/swiper-2.jpg">
+				<image mode="widthFix"
+					src="https://static-1258386385.cos.ap-beijing.myqcloud.com/img/banner/swiper-2.jpg">
 				</image>
 			</swiper-item>
 			<swiper-item>
-				<image mode="widthFix" src="https://static-1258386385.cos.ap-beijing.myqcloud.com/img/banner/swiper-3.jpg">
+				<image mode="widthFix"
+					src="https://static-1258386385.cos.ap-beijing.myqcloud.com/img/banner/swiper-3.jpg">
 				</image>
 			</swiper-item>
 			<swiper-item>
-				<image mode="widthFix" src="https://static-1258386385.cos.ap-beijing.myqcloud.com/img/banner/swiper-4.jpg">
+				<image mode="widthFix"
+					src="https://static-1258386385.cos.ap-beijing.myqcloud.com/img/banner/swiper-4.jpg">
 				</image>
 			</swiper-item>
 			<swiper-item>
-				<image mode="widthFix" src="https://static-1258386385.cos.ap-beijing.myqcloud.com/img/banner/swiper-5.jpg">
+				<image mode="widthFix"
+					src="https://static-1258386385.cos.ap-beijing.myqcloud.com/img/banner/swiper-5.jpg">
 				</image>
 			</swiper-item>
 		</swiper>

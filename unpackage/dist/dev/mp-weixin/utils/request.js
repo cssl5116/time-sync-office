@@ -11,17 +11,22 @@ const baseRequest = async (url, method = "GET", data = {}, loading = true) => {
       header: { "token": common_vendor.index.getStorageSync("token") || "" },
       data,
       success: (successData) => {
+        const res = successData.data;
         console.log(successData);
-        if (successData.statusCode == 200) {
-          const res2 = successData.data;
+        if (successData.statusCode == 401) {
+          common_vendor.index.redirectTo({
+            url: "@/pages/login/login"
+          });
+        } else if (successData.statusCode == 200 && successData.data.code == 200) {
+          if (res.hasOwnProperty("token")) {
+            let token = res.token;
+            console.log(token);
+            common_vendor.index.setStorageSync("token", token);
+          }
           utils_utils.toast("请求成功", "success");
-          reslove(res2);
-        } else if (successData.statusCode == 500) {
-          utils_utils.toast(res);
-        } else if (successData.statusCode == 401) {
-          utils_utils.useRouter("/pages/login/login", "redirectTo");
+          reslove(res);
         } else {
-          utils_utils.toast("请求失败", "error");
+          utils_utils.toast(res, "error");
         }
       },
       fail: (msg) => {

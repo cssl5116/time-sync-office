@@ -7338,20 +7338,6 @@ This will fail in production.`);
   useStore.$id = id;
   return useStore;
 }
-function storeToRefs(store) {
-  {
-    store = toRaw(store);
-    const refs = {};
-    for (const key in store) {
-      const value = store[key];
-      if (isRef(value) || isReactive(value)) {
-        refs[key] = // ---
-        toRef(store, key);
-      }
-    }
-    return refs;
-  }
-}
 exports._export_sfc = _export_sfc;
 exports.createPinia = createPinia;
 exports.createSSRApp = createSSRApp;
@@ -7359,7 +7345,8 @@ exports.defineStore = defineStore;
 exports.index = index;
 exports.n = n;
 exports.o = o;
+exports.onMounted = onMounted;
+exports.reactive = reactive;
 exports.ref = ref;
-exports.storeToRefs = storeToRefs;
 exports.t = t;
 exports.unref = unref;

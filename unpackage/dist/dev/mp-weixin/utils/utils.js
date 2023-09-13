@@ -1,7 +1,6 @@
 "use strict";
 const common_vendor = require("../common/vendor.js");
 function toast(title, icon = "none", duration = 1500) {
-  console.log(icon);
   if (title) {
     common_vendor.index.showToast({
       title,
