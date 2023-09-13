@@ -14,6 +14,13 @@ const _sfc_main = {
         url: "/pages/register/register"
       });
     };
+    common_vendor.onMounted(() => {
+      if (common_vendor.index.getStorageSync("token")) {
+        common_vendor.index.switchTab({
+          url: "/pages/index/index"
+        });
+      }
+    });
     const login = () => {
       common_vendor.index.login({
         success(resp) {
@@ -30,5 +37,5 @@ const _sfc_main = {
     };
   }
 };
-const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "C:/Users/86185/Desktop/团队项目代码/time-sync-office/pages/login/login.vue"]]);
+const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "/Users/fishx/Desktop/team/time-sync-office/pages/login/login.vue"]]);
 wx.createPage(MiniProgramPage);

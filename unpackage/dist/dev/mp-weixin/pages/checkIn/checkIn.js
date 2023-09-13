@@ -8,5 +8,5 @@ const _sfc_main = {
     };
   }
 };
-const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "C:/Users/86185/Desktop/团队项目代码/time-sync-office/pages/checkIn/checkIn.vue"]]);
+const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "/Users/fishx/Desktop/team/time-sync-office/pages/checkIn/checkIn.vue"]]);
 wx.createPage(MiniProgramPage);

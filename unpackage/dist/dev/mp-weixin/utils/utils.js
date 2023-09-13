@@ -9,6 +9,9 @@ function toast(title, icon = "none", duration = 1500) {
     });
   }
 }
+function clearStorageSync() {
+  return common_vendor.index.clearStorageSync();
+}
 function useRouter(url, params = {}, type = "navigateTo") {
   try {
     if (Object.keys(params).length)
@@ -26,5 +29,6 @@ function useRouter(url, params = {}, type = "navigateTo") {
     console.error(error);
   }
 }
+exports.clearStorageSync = clearStorageSync;
 exports.toast = toast;
 exports.useRouter = useRouter;

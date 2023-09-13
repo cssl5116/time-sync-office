@@ -1,0 +1,1 @@
+<view class="message"><view class="header"><view class="desc">{{a}}</view><view class="opt" bindtap="{{b}}">删除消息</view></view><view class="content">{{c}}</view></view>

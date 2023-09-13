@@ -2,13 +2,20 @@
 	import { IMG_URL } from "@/server/config.js"
 	import { useUserStore } from "../../stores/user";
 	import { toast } from "@/utils/utils.js"
+	import { onMounted } from "vue";
 	const userStore = useUserStore()
 	const toRegister = () => {
 		uni.navigateTo({
 			url: "/pages/register/register",
-
 		})
 	}
+	onMounted(() => {
+		if (uni.getStorageSync("token")) {
+			uni.switchTab({
+				url: "/pages/index/index"
+			})
+		}
+	})
 	const login = () => {
 		uni.login({
 			success(resp) {

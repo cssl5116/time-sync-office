@@ -20,7 +20,6 @@
 				"enablePullDownRefresh": false
 			}
 		},
-
 		{
 			"path": "pages/meeting_list/meeting_list",
 			"style": {
@@ -52,6 +51,19 @@
 			"path": "pages/checkIn/checkIn",
 			"style": {
 				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+		}, {
+			"path": "pages/message_list/message_list",
+			"style": {
+				"navigationBarTitleText": "我的消息",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/message/message",
+			"style": {
+				"navigationBarTitleText": "消息详情",
 				"enablePullDownRefresh": false
 			}
 		}

@@ -1,27 +1,64 @@
-<script setup>
-	import { onMounted, ref } from 'vue'
+<script>
 	import { toast, useRouter } from '@/utils/utils.js'
 	import { IMG_URL } from "@/server/config.js"
-	const unreadRows = ref(0)
-	onMounted(() => {
-		if (!uni.getStorageSync("token")) {
-			uni.showToast({
-				title: '请先登录',
-				icon: 'error'
+	import { refreshMessage } from "@/server/message.js"
+	import { websocket, websocketInit, closeSocket, sendMessage } from "@/utils/socket.js"
+
+	export default {
+		data() {
+			return {
+				unreadRows: 0,
+				lastRows: 0,
+				timer: null,
+				calendar: [],
+				meetingPage: 1,
+				meetingLength: 20,
+				meetingList: [],
+				isMeetingLastPage: false,
+				IMG_URL: IMG_URL
+			}
+		},
+		methods: {
+			toPage(url) {
+				if (!url) {
+					toast('正在施工中...敬请期待')
+					return
+				}
+				useRouter(url)
+			}
+		},
+		onLoad: function() {
+			let that = this
+			uni.$on('showMessage', function() {
+				that.$refs.popup.open('top')
 			})
-			setTimeout(() => {
-				uni.redirectTo({
-					url: '/pages/register/register'
-				})
-			}, 800)
+			/*refreshMessage().then(resp => {
+				that.unreadRows = resp.unreadRows
+				that.lastRows = resp.lastRows
+				if (that.lastRows > 0) {
+					uni.$emit('showMessage')
+				}
+			})*/
+		},
+		onUnload: function() {
+			uni.$off('showMessage')
+		},
+		onShow: function() {
+			websocketInit()
+			sendMessage(0);
+			let that = this
+			websocket.value.onMessage((res) => {
+				let resp = JSON.parse(res.data)
+				that.unreadRows = resp.unreadRows
+				that.lastRows = resp.lastRows
+				if (that.lastRows > 0) {
+					uni.$emit('showMessage')
+				}
+			})
+		},
+		onHide: () => {
+			closeSocket()
 		}
-	})
-	const toPage = (url) => {
-		if (!url) {
-			toast('正在施工中...敬请期待')
-			return
-		}
-		useRouter(url)
 	}
 </script>
 
@@ -29,32 +66,27 @@
 	<view class="content">
 		<swiper circular="true" interval="8000" duration="1000" class="swiper">
 			<swiper-item>
-				<image mode="widthFix"
-					src="https://static-1258386385.cos.ap-beijing.myqcloud.com/img/banner/swiper-1.jpg">
+				<image mode="widthFix" src="https://static-1258386385.cos.ap-beijing.myqcloud.com/img/banner/swiper-1.jpg">
 				</image>
 			</swiper-item>
 			<swiper-item>
-				<image mode="widthFix"
-					src="https://static-1258386385.cos.ap-beijing.myqcloud.com/img/banner/swiper-2.jpg">
+				<image mode="widthFix" src="https://static-1258386385.cos.ap-beijing.myqcloud.com/img/banner/swiper-2.jpg">
 				</image>
 			</swiper-item>
 			<swiper-item>
-				<image mode="widthFix"
-					src="https://static-1258386385.cos.ap-beijing.myqcloud.com/img/banner/swiper-3.jpg">
+				<image mode="widthFix" src="https://static-1258386385.cos.ap-beijing.myqcloud.com/img/banner/swiper-3.jpg">
 				</image>
 			</swiper-item>
 			<swiper-item>
-				<image mode="widthFix"
-					src="https://static-1258386385.cos.ap-beijing.myqcloud.com/img/banner/swiper-4.jpg">
+				<image mode="widthFix" src="https://static-1258386385.cos.ap-beijing.myqcloud.com/img/banner/swiper-4.jpg">
 				</image>
 			</swiper-item>
 			<swiper-item>
-				<image mode="widthFix"
-					src="https://static-1258386385.cos.ap-beijing.myqcloud.com/img/banner/swiper-5.jpg">
+				<image mode="widthFix" src="https://static-1258386385.cos.ap-beijing.myqcloud.com/img/banner/swiper-5.jpg">
 				</image>
 			</swiper-item>
 		</swiper>
-		<view class="notify-container">
+		<view class="notify-container" @click="toPage('/pages/message_list/message_list')">
 			<view class="notify-title">
 				<image :src="IMG_URL + 'icon-1.png'" mode="widthFix" class="notify-icon"></image>
 				消息提醒
@@ -118,6 +150,9 @@
 				</view>
 			</view>
 		</view>
+		<uni-popup ref="popup" type="message">
+			<uni-popup-message type="success" :message="'接收到' + lastRows + '条消息'" :duration="2000"></uni-popup-message>
+		</uni-popup>
 	</view>
 </template>
 
